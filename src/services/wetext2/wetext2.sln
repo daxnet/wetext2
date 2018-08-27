@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeText.Common", "WeText.Common\WeText.Common.csproj", "{777EFE92-6108-4FD8-A217-07E46292C1C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeText.Common", "WeText.Common\WeText.Common.csproj", "{777EFE92-6108-4FD8-A217-07E46292C1C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeText.Services.Accounts", "WeText.Services.Accounts\WeText.Services.Accounts.csproj", "{0BA76930-41F7-4C72-9978-0ECEAC6F3AAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeText.Services.Accounts", "WeText.Services.Accounts\WeText.Services.Accounts.csproj", "{0BA76930-41F7-4C72-9978-0ECEAC6F3AAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeText.CrudProviders.MongoDB", "WeText.CrudProviders.MongoDB\WeText.CrudProviders.MongoDB.csproj", "{1E1A70C2-2CD4-4B01-B80F-A057CDBB107C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeText.CrudProviders.MongoDB", "WeText.CrudProviders.MongoDB\WeText.CrudProviders.MongoDB.csproj", "{1E1A70C2-2CD4-4B01-B80F-A057CDBB107C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{492879EF-0597-4C22-B94F-910765B98004}"
+	ProjectSection(SolutionItems) = preProject
+		..\docker-compose.ci.yml = ..\docker-compose.ci.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

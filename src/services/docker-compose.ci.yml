@@ -1,0 +1,6 @@
+version: '3'
+services:
+  accounts:
+    build:
+      context: ./wetext2/WeText.Services.Accounts
+    image: daxnet/wetext-accounts
