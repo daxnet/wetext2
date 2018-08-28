@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeText.CrudProviders.MongoD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{492879EF-0597-4C22-B94F-910765B98004}"
 	ProjectSection(SolutionItems) = preProject
-		..\docker-compose.ci.yml = ..\docker-compose.ci.yml
+		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
 Global

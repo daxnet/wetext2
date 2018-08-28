@@ -1,0 +1,13 @@
+version: '3'
+services:
+  accounts:
+    image: daxnet/wetext-accounts
+    build:
+      context: .
+      dockerfile: WeText.Services.Accounts/Dockerfile
+    ports:
+      - 9020:9020
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://*:9020
+    container_name: wetext-accounts
