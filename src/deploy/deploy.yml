@@ -1,1 +1,21 @@
-abc
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wetext-accounts-deployment
+  labels:
+    app: wetext
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wetext
+  template:
+    metadata:
+      labels:
+        app: wetext
+    spec:
+      containers:
+      - name: wetext-accounts
+        image: daxnet/wetext-accounts
+        ports:
+        - containerPort: 9020
