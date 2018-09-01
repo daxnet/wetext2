@@ -17,6 +17,9 @@ spec:
       containers:
       - name: wetext-accounts
         image: daxnet/wetext-accounts
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:9020
         ports:
         - containerPort: 9020
 ---
