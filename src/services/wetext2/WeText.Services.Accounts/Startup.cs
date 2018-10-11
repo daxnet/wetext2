@@ -114,24 +114,26 @@ namespace WeText.Services.Accounts
 
         private void RegisterApplicationServices(IServiceCollection services)
         {
-            var mongoServerHost = Configuration["mongo:server:host"];
-            if (string.IsNullOrEmpty(mongoServerHost))
-            {
-                mongoServerHost = "localhost";
-            }
-
-            if (!int.TryParse(Configuration["mongo:server:port"], out var mongoServerPort))
-            {
-                mongoServerPort = 27017;
-            }
-
-            var mongoDatabase = Configuration["mongo:server:database"];
-            if (string.IsNullOrEmpty(mongoDatabase))
-            {
-                mongoDatabase = "WeText_Accounts";
-            }
-
+            // Mongo Database
+            var mongoServerHost = GetConfigurationValue("mongo:server:host", "localhost");
+            var mongoServerPort = Convert.ToInt32(GetConfigurationValue("mongo:server:port", "27017"));
+            var mongoDatabase = GetConfigurationValue("mongo:server:database", "WeText_Accounts");
             services.AddTransient<ICrudProvider>(serviceProvider => new MongoCrudProvider(mongoDatabase, mongoServerHost, mongoServerPort));
+
+            // RabbitMQ Messaging
+            var rabbitHostName = GetConfigurationValue("rabbit:server:host", "localhost");
+            var rabbitExchange = GetConfigurationValue("rabbit:exchange", "");
+        }
+
+        private string GetConfigurationValue(string configurationName, string defaultValue)
+        {
+            var configValue = Configuration[configurationName];
+            if (string.IsNullOrEmpty(configValue))
+            {
+                return defaultValue;
+            }
+
+            return configValue;
         }
 
         #endregion Private Methods

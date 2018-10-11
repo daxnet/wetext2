@@ -31,8 +31,17 @@ using System;
 
 namespace WeText.Common
 {
+    /// <summary>
+    /// Represents that the implemented classes are domain entities.
+    /// </summary>
     public interface IEntity
     {
+        /// <summary>
+        /// Gets the unique identifier of the entity.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         Guid Id { get; }
     }
 }
