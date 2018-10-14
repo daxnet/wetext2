@@ -1,0 +1,33 @@
+version: '3'
+services:
+  #### WeText Eureka Server ###
+  wetext-disco-server:
+    image: daxnet/wetext-disco-server
+    build:
+      context: src/services/wetext2-disco-server
+      dockerfile: Dockerfile
+    ports:
+      - 8761:8761
+    environment:
+      - eureka.client.register-with-eureka=false
+      - eureka.client.fetch-registry=false
+    container_name: wetext-disco-server
+
+  #### WeText Config Server ###
+  wetext-config-server:
+    image: daxnet/wetext-config-server
+    build:
+      context: src/services/wetext2-config-server
+      dockerfile: Dockerfile
+    ports:
+      - 8888:8888
+    environment:
+      - spring.cloud.config.server.git.uri=https://github.com/daxnet/wetext2-config.git
+      - spring.cloud.config.server.git.clone-on-start=true
+      - eureka.client.service-url.defaultZone=http://wetext-disco-server:8761/eureka
+    depends_on:
+      - wetext-disco-server
+    links:
+      - wetext-disco-server
+    container_name: wetext-config-server
+    
